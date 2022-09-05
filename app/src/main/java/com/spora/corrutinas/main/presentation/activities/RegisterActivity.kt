@@ -2,10 +2,7 @@ package com.spora.corrutinas.main.presentation.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.activity.viewModels
-import com.spora.corrutinas.R
 import com.spora.corrutinas.databinding.ActivityRegisterBinding
-import com.spora.corrutinas.main.domain.log
 import com.spora.corrutinas.main.presentation.viewmodel.RegisterViewModel
 
 class RegisterActivity : AppCompatActivity() {
