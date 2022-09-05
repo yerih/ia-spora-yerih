@@ -3,6 +3,7 @@ package com.spora.corrutinas.main.presentation.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.spora.corrutinas.databinding.ActivityRegisterBinding
+import com.spora.corrutinas.main.domain.log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -21,16 +22,24 @@ class RegisterViewModel: ViewModel(){
 
     private fun checkInput(binding: ActivityRegisterBinding): Boolean{
         var check = true
+        val error = "check empty input"
         with(binding){
             with(data){
-                name = inputName.text.toString().ifEmpty { check = false}
+                name = inputName.text.toString().also { check = false}
                 paternal = inputPaternal.text.toString().also { check = false }
                 maternal = inputMaternal.text.toString().also { check = false }
                 phone = inputPhone.text.toString().also { check = false }
                 date = inputDate.text.toString().also { check = false }
                 email = inputEmail.text.toString().also { check = false }
+
+                if(name.isNotEmpty()) layoutName.isErrorEnabled = false else layoutName.error = error
+                if(paternal.isNotEmpty()) layoutPaternal.isErrorEnabled = false else layoutPaternal.error = error
+                if(maternal.isNotEmpty()) layoutMaternal.isErrorEnabled = false else layoutMaternal.error = error
+                if(phone.isNotEmpty()) layoutPhone.isErrorEnabled = false else layoutPhone.error = error
+                if(date.isNotEmpty()) layoutDate.isErrorEnabled = false else layoutDate.error = error
+                if(email.isNotEmpty()) layoutEmail.isErrorEnabled = false else layoutEmail.error = error
+                if(address.isNotEmpty()) layoutAddress.isErrorEnabled = false else layoutAddress.error = error
             }
-            layoutName.isErrorEnabled = .isEmpty().also { if(it)check = it }
         }
         return check
     }
