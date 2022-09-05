@@ -1,11 +1,7 @@
 package com.spora.corrutinas.main.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.spora.corrutinas.databinding.ActivityRegisterBinding
-import com.spora.corrutinas.main.domain.log
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 class RegisterViewModel: ViewModel(){
 
