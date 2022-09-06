@@ -7,4 +7,13 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="primaryColor">@color/red</color>
+
+    <color name="gris_100">#FFCDD7E8</color>
+    <color name="gris_700">#585C62</color>
+
+    <color name="disabled_button_background">@color/gris_100</color>
+    <color name="disabled_button_text" >@color/gris_100</color>
+    <color name="text_button">@color/white</color>
 </resources>

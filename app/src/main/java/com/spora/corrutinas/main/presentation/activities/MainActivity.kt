@@ -2,8 +2,8 @@ package com.spora.corrutinas.main.presentation.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.viewModels
-import com.spora.corrutinas.R
 import com.spora.corrutinas.databinding.ActivityMainBinding
 import com.spora.corrutinas.main.domain.datasourceabstrations.ItemsProvider
 import com.spora.corrutinas.main.presentation.adapters.MainAdapter
@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         ItemsProvider.startEmitting(observer)
         binding.recycler.adapter = adapter
+        binding.onClick = { Toast.makeText(applicationContext, "button clicked", Toast.LENGTH_SHORT).show() }
     }
 
     override fun onDestroy() {

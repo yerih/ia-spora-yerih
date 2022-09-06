@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="StyleButtonTimer">
+        <attr name="time" format="integer" />
+        <attr name="textOff" format="string" />
+        <attr name="textOn" format="string" />
+        <attr name="listener" format="reference"/>
+    </declare-styleable>
+
+
+</resources>
