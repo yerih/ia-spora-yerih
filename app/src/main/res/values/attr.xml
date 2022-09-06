@@ -5,7 +5,6 @@
         <attr name="time" format="integer" />
         <attr name="textOff" format="string" />
         <attr name="textOn" format="string" />
-        <attr name="listener" format="reference"/>
     </declare-styleable>
 
 

@@ -24,7 +24,7 @@ class ButtonTimer @JvmOverloads constructor(
     init {
         context.obtainStyledAttributes(attrs, R.styleable.StyleButtonTimer).apply {
             time = getInt(R.styleable.StyleButtonTimer_time, 0).also { timer = buildTimer() }
-            textOff = getString(R.styleable.StyleButtonTimer_textOff).toString().also { text = textOff }
+            textOff = getString(R.styleable.StyleButtonTimer_textOff).toString().also { text = it }
             textOn = getString(R.styleable.StyleButtonTimer_textOn).toString()
             recycle()
         }
