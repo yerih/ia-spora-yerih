@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <declare-styleable name="StyleButtonTimer">
+    <declare-styleable name="ButtonTimer">
         <attr name="time" format="integer" />
         <attr name="textOff" format="string" />
         <attr name="textOn" format="string" />

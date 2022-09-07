@@ -2,7 +2,6 @@ package com.spora.corrutinas.main.presentation.components_ui
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.content.res.TypedArray
 import android.os.CountDownTimer
 import android.util.AttributeSet
 import com.google.android.material.button.MaterialButton
@@ -22,10 +21,10 @@ class ButtonTimer @JvmOverloads constructor(
     private var timer: CountDownTimer
 
     init {
-        context.obtainStyledAttributes(attrs, R.styleable.StyleButtonTimer).apply {
-            time = getInt(R.styleable.StyleButtonTimer_time, 0).also { timer = buildTimer() }
-            textOff = getString(R.styleable.StyleButtonTimer_textOff).toString().also { text = it }
-            textOn = getString(R.styleable.StyleButtonTimer_textOn).toString()
+        context.obtainStyledAttributes(attrs, R.styleable.ButtonTimer).apply {
+            time = getInt(R.styleable.ButtonTimer_time, 0).also { timer = buildTimer() }
+            textOff = getString(R.styleable.ButtonTimer_textOff).toString().also { text = it }
+            textOn = getString(R.styleable.ButtonTimer_textOn).toString()
             recycle()
         }
         setOnClickListener {
