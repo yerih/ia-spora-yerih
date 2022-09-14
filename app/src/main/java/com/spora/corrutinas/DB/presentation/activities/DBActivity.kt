@@ -10,7 +10,6 @@ import com.spora.corrutinas.db.data.ContactDatabase
 import com.spora.corrutinas.databinding.ActivityDbBinding
 import com.spora.corrutinas.db.presentation.adapters.DbAdapter
 import com.spora.corrutinas.db.presentation.viewmodels.DbViewModel
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class DBActivity : AppCompatActivity() {
@@ -25,13 +24,9 @@ class DBActivity : AppCompatActivity() {
         val adapter = DbAdapter{ contact, isDelete -> viewModel.saveOrDelete(contact, isDelete) }
         val binding = ActivityDbBinding.inflate(layoutInflater).apply {
             recycler.adapter = adapter
-            btnDbSend.setOnClickListener { viewModel.onSendClicked() }
+            btnDbSend.setOnClickListener { viewModel.onSendClicked(this) }
         }
-        lifecycleScope.launch {
-            db.contactDao().getContacts().collect{
-                adapter.submitList(it)
-            }
-        }
+        lifecycleScope.launch { db.contactDao().getContacts().collect{ adapter.submitList(it) } }
         setContentView(binding.root)
     }
 }

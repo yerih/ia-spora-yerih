@@ -17,6 +17,9 @@
     <color name="rosado_300">#FFACBE</color>
     <color name="azul_300">#9ED5FF</color>
 
+    <color name="isFemale">@color/rosado_300</color>
+    <color name="isMale">@color/azul_300</color>
+
     <color name="disabled_button_background">@color/gris_100</color>
     <color name="disabled_button_text" >@color/gris_100</color>
     <color name="text_button">@color/white</color>

@@ -107,6 +107,8 @@
                                 android:text="F" />
 
                             <RadioButton
+                                android:checked="true"
+                                android:id="@+id/radioBtn_isMale"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="M" />
