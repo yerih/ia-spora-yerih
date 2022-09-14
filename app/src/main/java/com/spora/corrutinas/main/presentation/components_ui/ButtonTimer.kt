@@ -14,7 +14,7 @@ class ButtonTimer @JvmOverloads constructor(
     defStyleAttr: Int = R.style.SporaButton,
 ): MaterialButton(context, attrs, defStyleAttr){
 
-    private var time: Int = 0
+    private var time: Int
     private var textOff: String = ""
     private var textOn: String = ""
     var clickListener: (()->Unit)? = null
@@ -22,19 +22,20 @@ class ButtonTimer @JvmOverloads constructor(
 
     init {
         context.obtainStyledAttributes(attrs, R.styleable.ButtonTimer).apply {
-            time = getInt(R.styleable.ButtonTimer_time, 0).also { timer = buildTimer() }
+            time = getInt(R.styleable.ButtonTimer_time, 0).also { timer = buildTimer(it) }
             textOff = getString(R.styleable.ButtonTimer_textOff).toString().also { text = it }
             textOn = getString(R.styleable.ButtonTimer_textOn).toString()
             recycle()
-        }
-        setOnClickListener {
-            isEnabled = false
-            timer.start()
-            clickListener?.invoke()
+
+            setOnClickListener {
+                isEnabled = false
+                timer.start()
+                clickListener?.invoke()
+            }
         }
     }
 
-    private fun buildTimer() = object : CountDownTimer((time * 1000).toLong(), 1000) {
+    private fun buildTimer(time: Int) = object : CountDownTimer((time * 1000).toLong(), 1000) {
         @SuppressLint("SetTextI18n")
         override fun onTick(milis: Long) {
             val seconds = (TimeUnit.MILLISECONDS.toSeconds(milis) + 1).toString()

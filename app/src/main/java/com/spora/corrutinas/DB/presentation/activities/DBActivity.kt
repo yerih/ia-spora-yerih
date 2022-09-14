@@ -6,7 +6,6 @@ import androidx.activity.viewModels
 import androidx.room.Room
 import com.spora.corrutinas.db.data.Contact
 import com.spora.corrutinas.db.data.ContactDatabase
-import com.spora.corrutinas.R
 import com.spora.corrutinas.databinding.ActivityDbBinding
 import com.spora.corrutinas.db.presentation.viewmodels.DbViewModel
 
