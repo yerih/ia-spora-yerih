@@ -23,10 +23,7 @@ class DbViewModel : ViewModel(){
             var check = true
             if(name.isNotEmpty())layoutName.isErrorEnabled = false else layoutName.error = error.also { check = false }
             if(last.isNotEmpty())layoutLast.isErrorEnabled = false else layoutLast.error = error.also { check = false }
-            if(check) viewModelScope.launch(Dispatchers.IO) {
-                contactDao.insert(Contact(name, last, radioBtnIsMale.isChecked))
-//                contactDao.insert(Contact("hola", "como", true))
-            }
+            if(check) viewModelScope.launch(Dispatchers.IO) { contactDao.insert(Contact(name, last, radioBtnIsMale.isChecked)) }
         }
     }
 

@@ -15,7 +15,6 @@ import com.spora.corrutinas.db.data.Contact
 class DbAdapter(private val listener: (Contact, isDelete: Boolean)->Unit): ListAdapter<Contact, DbAdapter.ViewHolder >(DiffUtilCallback) {
 
     class ViewHolder(private val binding: ItemDbBinding, private val listener: (Contact, isDelete: Boolean) -> Unit): RecyclerView.ViewHolder(binding.root){
-        @RequiresApi(Build.VERSION_CODES.M)
         fun bind(contact: Contact) = with(binding){
             this.contact = contact
             card.background.setTint(root.context.getColor(if(contact.isMale) R.color.isMale else R.color.isFemale))
