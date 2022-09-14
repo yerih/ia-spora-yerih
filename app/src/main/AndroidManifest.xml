@@ -12,11 +12,14 @@
         <activity
             android:name=".login.presentation.activities.LoginActivity"
             android:exported="true" >
-
         </activity>
         <activity
-            android:name=".DB.DBActivity"
+            android:name=".db.presentation.activities.DBActivity"
             android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".main.presentation.activities.RegisterActivity"
