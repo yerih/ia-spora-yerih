@@ -12,20 +12,17 @@ import com.spora.corrutinas.db.presentation.viewmodels.DbViewModel
 
 class DBActivity : AppCompatActivity() {
 
-//    private val db = Room.databaseBuilder(applicationContext, ContactDatabase::class.java, Contact.table_name).build()
-//    private val db by lazy {
-//        Room.databaseBuilder(applicationContext, ContactDatabase::class.java, Contact.table_name).build()
-//    }
+    private val db by lazy {
+        Room.databaseBuilder(applicationContext, ContactDatabase::class.java, Contact.table_name).build()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar?.hide()
-        val viewModel: DbViewModel by viewModels<DbViewModel>().apply {
-            value.db = Room.databaseBuilder(applicationContext, ContactDatabase::class.java, Contact.table_name).build()
-        }
+        val viewModel: DbViewModel by viewModels<DbViewModel>().apply { value.contactDao = db.contactDao() }
         val binding = ActivityDbBinding.inflate(layoutInflater).apply {
-//            btnDbSend.setOnClickListener { viewModel.onSendClicked() }
+            btnDbSend.setOnClickListener { viewModel.onSendClicked() }
         }
-        setContentView(R.layout.activity_db)
+        setContentView(binding.root)
     }
 }
