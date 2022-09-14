@@ -1,9 +1,11 @@
-package com.spora.corrutinas.DB.data
+package com.spora.corrutinas.db.data
 
 import androidx.room.Entity
+import androidx.room.PrimaryKey
 
 @Entity(tableName = Contact.table_name)
 data class Contact(
+    @PrimaryKey
     val name: String,
     val lastName: String,
     val isMale: Boolean,

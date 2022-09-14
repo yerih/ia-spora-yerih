@@ -1,4 +1,4 @@
-package com.spora.corrutinas.DB.data
+package com.spora.corrutinas.db.data
 
 import androidx.room.Dao
 import androidx.room.Insert
@@ -10,7 +10,7 @@ interface ContactDao{
     @Insert
     suspend fun insert(contact: Contact)
 
-    @Query("SELECT * FROM "+Contact.table_name+" ORDER BY last_name, first_name")
+    @Query("SELECT * FROM "+ Contact.table_name)
     fun getContacts(): Flow<List<Contact>>
 }
 

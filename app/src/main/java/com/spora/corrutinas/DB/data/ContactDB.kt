@@ -1,4 +1,4 @@
-package com.spora.corrutinas.DB.data
+package com.spora.corrutinas.db.data
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
