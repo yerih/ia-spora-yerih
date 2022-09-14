@@ -14,6 +14,7 @@ class DbViewModel : ViewModel(){
 
 
     fun onSendClicked() {
-        viewModelScope.launch(Dispatchers.IO) { contactDao.insert(Contact("hola", "como", true)) }
+//        viewModelScope.launch(Dispatchers.IO) { contactDao.insert(Contact("hola", "como", true)) }
+        viewModelScope.launch(Dispatchers.IO) { contactDao.delete(Contact("hola", "como", true)) }
     }
 }
